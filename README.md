@@ -12,6 +12,25 @@
 
 > **项目状态：v0.1 实际可用的首版。** 已提供离线运行的提示词生成器和本地网页演示；尚未声称它已在每个 Gemini 版本、设备或浏览器中完成实测。Gemini 网页端功能会随地区和版本变化。
 
+
+## 🌐 在线网站 / Live Website
+
+- **体验网站**：https://aipmandy.github.io/Gemini-Canvas-Video-Kit/ （首次使用需先启用 GitHub Pages）
+- **产品 Demo**：https://aipmandy.github.io/Gemini-Canvas-Video-Kit/examples/launch-showcase.html
+- **部署流水线**：[Actions · Publish Gemini Canvas Video Kit](https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit/actions/workflows/pages.yml)
+
+### 访问网站 404 怎么处理？
+
+公开仓库和 `index.html` 存在，并不代表 GitHub Pages 已启用。首次需要仓库管理员操作一次：
+
+1. 打开 [Settings → Pages](https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit/settings/pages)。
+2. 在 **Build and deployment → Source** 选择 **GitHub Actions**（本项目已配置独立部署工作流，不要再使用分支发布模式）。
+3. 打开 [Actions → Publish Gemini Canvas Video Kit](https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit/actions/workflows/pages.yml)，运行 **Run workflow**；或者再次推送 `main` 触发。
+4. 等待工作流绿色成功后，再访问网站。若失败，查看运行日志，不要把仓库提交成功误认为网站已经上线。
+
+之后每次提交 `main`，都会先运行 `python3 scripts/smoke_test.py` 检查入口页面与内部链接，再自动发布；没有成功的部署记录时，不对外宣称网站已上线。
+
+
 ## 为什么做
 
 市面上很多“AI 做视频”项目最后仍要配置 API、安装 CLI、处理剪辑和音频。而很多产品介绍、模拟操作、知识科普、信息可视化，本来就可以在一个浏览器网页里变成 **连续、有时间轴、有镜头、有字幕** 的作品。
