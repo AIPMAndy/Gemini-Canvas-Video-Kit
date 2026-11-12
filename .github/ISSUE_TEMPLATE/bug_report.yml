@@ -1,0 +1,27 @@
+name: Canvas 生成问题
+about: 反馈 Gemini 网页版 Canvas 生成效果或本项目页面故障
+labels: [bug]
+body:
+  - type: textarea
+    id: scene
+    attributes:
+      label: 期望制作的视频
+      description: 视频类型、比例、时长、希望呈现的效果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际出现的问题
+      description: 哪个镜头、哪个操作、哪段音频或字幕出了问题
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Gemini / 浏览器环境
+      placeholder: Gemini 网页版 Canvas，Chrome / Safari...
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 可复现步骤与截图（请脱敏）

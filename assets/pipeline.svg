@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="210" viewBox="0 0 1000 210" role="img" aria-label="填写需求，复制提示词，Gemini Canvas 生成网页，录屏成片">
+<rect x="0" y="0" width="1000" height="210" rx="28" fill="#f8fafc"/>
+<g font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="bold" text-anchor="middle">
+<rect x="25" y="45" width="207" height="120" rx="20" fill="#e9eefe" stroke="#dce2ff"/><text x="129" y="95" fill="#213a7f">① 填写需求</text><text x="129" y="130" font-size="14" fill="#50618b">类型 / 时长 / 受众</text>
+<path d="M239 105H270" stroke="#7b8cff" stroke-width="3"/><path d="M263 98L273 105L263 112" fill="none" stroke="#7b8cff" stroke-width="3"/>
+<rect x="283" y="45" width="207" height="120" rx="20" fill="#e9eefe" stroke="#dce2ff"/><text x="387" y="95" fill="#213a7f">② 复制 Prompt</text><text x="387" y="130" font-size="14" fill="#50618b">完整分镜 + 时间轴</text>
+<path d="M497 105H528" stroke="#7b8cff" stroke-width="3"/><path d="M521 98L531 105L521 112" fill="none" stroke="#7b8cff" stroke-width="3"/>
+<rect x="541" y="45" width="207" height="120" rx="20" fill="#e9eefe" stroke="#dce2ff"/><text x="644" y="95" fill="#213a7f">③ Gemini Canvas</text><text x="644" y="130" font-size="14" fill="#50618b">生成可播放网页</text>
+<path d="M755 105H786" stroke="#7b8cff" stroke-width="3"/><path d="M779 98L789 105L779 112" fill="none" stroke="#7b8cff" stroke-width="3"/>
+<rect x="799" y="45" width="175" height="120" rx="20" fill="#14358d"/><text x="886" y="95" fill="white">④ 全屏录制</text><text x="886" y="130" font-size="14" fill="#d9e3ff">完成视频</text>
+</g></svg>
