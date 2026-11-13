@@ -10,6 +10,17 @@
 
 </div>
 
+<!-- andy-pdf-edition:start -->
+## 精美 PDF 电子书
+
+[**免费下载《Gemini Canvas 视频制作指南》**](pdf/Gemini-Canvas-Video-Kit-guide.pdf) · [直接下载 PDF](https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit/raw/refs/heads/main/pdf/Gemini-Canvas-Video-Kit-guide.pdf)
+
+**24 页 · A5 手机阅读版 · 可点击目录 · 0.63 MB**  
+整理日期：2026-11-13。包含完整实操正文、案例、模板与原始来源；平台规则与价格沿用原资料的核查日期。
+
+**作者与服务（广告）**：AI 酋长 Andy · 个人微信 **AIPMAndy** · [个人官网](https://metaver.vip/) · [公司官网](https://www.a6no1.cn/)。免费教程可直接使用，咨询与合作自愿选择。
+<!-- andy-pdf-edition:end -->
+
 > **项目状态：v0.1 实际可用的首版。** 已提供离线运行的提示词生成器和本地网页演示；尚未声称它已在每个 Gemini 版本、设备或浏览器中完成实测。Gemini 网页端功能会随地区和版本变化。
 
 

@@ -1,0 +1,35 @@
+{
+  "repo": "Gemini-Canvas-Video-Kit",
+  "title": "Gemini Canvas 视频制作指南",
+  "date": "2026-11-13",
+  "source_commit": "4e55525f8b8971665dc84f05d9ed2bbbfc799772",
+  "pages": 24,
+  "sections": 13,
+  "source_files": [
+    "docs/quickstart.md",
+    "docs/audio-and-recording.md",
+    "docs/quality-checklist.md",
+    "docs/limitations.md",
+    "templates/master-prompt.md",
+    "templates/shot-planning.md",
+    "templates/product-launch.md",
+    "templates/ui-demo.md",
+    "templates/explainer.md",
+    "templates/data-story.md",
+    "templates/course-demo.md",
+    "templates/social-short.md",
+    "templates/repair-prompts.md"
+  ],
+  "website": "https://aipmandy.github.io/Gemini-Canvas-Video-Kit/",
+  "bytes": 657317,
+  "sha256": "b84cecff5bfa999e5558acd89e8b1eef9a17fe167e8da2125f7eda23ead805fa",
+  "pdf_path": "pdf/Gemini-Canvas-Video-Kit-guide.pdf",
+  "contacts": {
+    "personal_website": "https://metaver.vip/",
+    "company_website": "https://www.a6no1.cn/",
+    "wechat": "AIPMAndy",
+    "public_account": "AI 酋长 Andy"
+  },
+  "edition": "A5 · 黑白金实操系列 · PDF 2026.11",
+  "notes": "PDF编排日期不代表所有外部政策与价格的重新核验日期。源文件许可与案例标注继续适用。"
+}
