@@ -26,20 +26,23 @@
 
 ## 🌐 在线网站 / Live Website
 
-- **体验网站**：https://aipmandy.github.io/Gemini-Canvas-Video-Kit/ （首次使用需先启用 GitHub Pages）
+- **体验网站**：https://aipmandy.github.io/Gemini-Canvas-Video-Kit/ （2026-11-15 实测返回 HTTP 200，站点可访问）
 - **产品 Demo**：https://aipmandy.github.io/Gemini-Canvas-Video-Kit/examples/launch-showcase.html
 - **部署流水线**：[Actions · Publish Gemini Canvas Video Kit](https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit/actions/workflows/pages.yml)
 
+### 网站如何发布？
+
+本仓库唯一部署路径是 GitHub Actions 工作流 [`.github/workflows/pages.yml`](.github/workflows/pages.yml)（`Publish Gemini Canvas Video Kit`）。每次推送到 `main`（或手动 **Run workflow**）会：
+
+1. 运行 `python3 scripts/smoke_test.py` 检查 `index.html`、示例页与相对链接；
+2. 将 `index.html`、`.nojekyll`、`examples/`、`assets/` 打包为 Pages 制品；
+3. 通过 `actions/deploy-pages` 发布到 GitHub Pages（`https://aipmandy.github.io/Gemini-Canvas-Video-Kit/`）。
+
+首次启用需在 [Settings → Pages](https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit/settings/pages) 将 **Build and deployment → Source** 设为 **GitHub Actions**（不要用「Deploy from a branch」）。
+
 ### 访问网站 404 怎么处理？
 
-公开仓库和 `index.html` 存在，并不代表 GitHub Pages 已启用。首次需要仓库管理员操作一次：
-
-1. 打开 [Settings → Pages](https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit/settings/pages)。
-2. 在 **Build and deployment → Source** 选择 **GitHub Actions**（本项目已配置独立部署工作流，不要再使用分支发布模式）。
-3. 打开 [Actions → Publish Gemini Canvas Video Kit](https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit/actions/workflows/pages.yml)，运行 **Run workflow**；或者再次推送 `main` 触发。
-4. 等待工作流绿色成功后，再访问网站。若失败，查看运行日志，不要把仓库提交成功误认为网站已经上线。
-
-之后每次提交 `main`，都会先运行 `python3 scripts/smoke_test.py` 检查入口页面与内部链接，再自动发布；没有成功的部署记录时，不对外宣称网站已上线。
+若首页 404，通常是 Pages 尚未用上述 Actions 成功部署一次。按 [Actions 工作流](https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit/actions/workflows/pages.yml) 触发运行并等待绿色成功，再刷新站点。
 
 
 ## 为什么做
@@ -95,11 +98,15 @@
 
 详见 [音频与录屏](./docs/audio-and-recording.md) 和 [能力边界](./docs/limitations.md)。
 
-## 网站上线方式（GitHub Pages）
+## 常见问题（FAQ）
 
-将仓库公开并把文件提交到 `main`，然后打开 **Settings → Pages → Build and deployment → Deploy from a branch → main / (root)**。站点会包含 `index.html` 和 `examples/`。这里只提供静态网页，不要求使用任何服务端或账户。
+**能一键导出 MP4 吗？** 不能。Canvas 没有官方承诺的一键 MP4 按钮；本项目默认用**系统录屏**得到成片（见 [能力边界](./docs/limitations.md)）。
 
-> GitHub Pages 的实际发布地址以 GitHub 配置界面显示为准，不预设已经上线。
+**浏览器自动配音稳吗？** `speechSynthesis` 的声线、时长与录屏音轨都**无法保证稳定**；建议以字幕和画面为主。
+
+**这是 Veo 文生视频吗？** 不是。这里是**代码驱动的网页动画**，走 Gemini 网页版 Canvas，不等于 Veo 写实镜头。
+
+**和 Google/Gemini 官方什么关系？** 本项目**非 Google 官方产品**，与 Google/Gemini 无隶属或合作关系（Gemini 为 Google 商标）。
 
 ## 原始资料与参考
 
@@ -113,7 +120,7 @@
 
 ## 作者与合作
 
-由 **AI 酋长 Andy / 星觉科技** 发起，服务内容创作者与 AI 产品团队。
+**AI酋长Andy** · 流量 AI 联合创始人、星觉 AI 创始人 · **星觉科技** · 北京 · 个人微信 **AIPMAndy**
 
 - [个人网站](https://metaver.vip/)
 - [企业网站](https://www.a6no1.cn/)
