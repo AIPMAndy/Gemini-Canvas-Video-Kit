@@ -6,7 +6,7 @@
 
 **不用 CLI · 不用 API Key · 不用安装插件 · 中文优先 · 开箱即用**
 
-[打开提示词工作室](./index.html) · [30 秒完整演示](./examples/launch-showcase.html) · [5 分钟入门](./docs/quickstart.md) · [English](./README.en.md)
+[打开提示词工作室](./index.html) · [成片验收与返工工作台](./review.html) · [30 秒完整演示](./examples/launch-showcase.html) · [5 分钟入门](./docs/quickstart.md) · [English](./README.en.md)
 
 </div>
 
@@ -35,7 +35,7 @@
 本仓库唯一部署路径是 GitHub Actions 工作流 [`.github/workflows/pages.yml`](.github/workflows/pages.yml)（`Publish Gemini Canvas Video Kit`）。每次推送到 `main`（或手动 **Run workflow**）会：
 
 1. 运行 `python3 scripts/smoke_test.py` 检查 `index.html`、示例页与相对链接；
-2. 将 `index.html`、`.nojekyll`、`examples/`、`assets/` 打包为 Pages 制品；
+2. 将首页、`review.html`、`robots.txt`、`sitemap.xml`、`examples/`、`assets/` 和原版 PDF 一并打包为 Pages 制品；
 3. 通过 `actions/deploy-pages` 发布到 GitHub Pages（`https://aipmandy.github.io/Gemini-Canvas-Video-Kit/`）。
 
 首次启用需在 [Settings → Pages](https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit/settings/pages) 将 **Build and deployment → Source** 设为 **GitHub Actions**（不要用「Deploy from a branch」）。
@@ -59,6 +59,18 @@
 4. 检查首屏、操作细节、镜头连接和字幕；点击网页的播放/全屏，使用系统录屏获取成片。
 
 ![无需安装的流程](./assets/pipeline.svg)
+
+## 成片验收与返工工作台（2026-11-23 新增）
+
+[打开 QA 工作台](https://aipmandy.github.io/Gemini-Canvas-Video-Kit/review.html)。
+
+- 输入视频名称、目标秒数（10–300 秒）、画幅与来源性质，生成总时长精确闭合的 **5 镜头参考时间轴**。
+- 用 **12 项人工 QA 清单** 记录字幕安全区、播放连续性、暂停重播、数据真实性、版权、隐私及录屏质量；未勾选项目自动汇总为 Gemini Canvas 可直接修复的任务 Prompt。
+- 支持浏览器本机记录、复制及 UTF-8 TXT 导出；不上传视频、客户或账户数据，清空会要求确认。
+- 选择「真实素材」却未提供有效 HTTPS 证据时会给出警示；不会自行断言平台能力、视频质量或真实商业结果。
+- 这是视频制作辅助工具，**不是自动观看/真机检测，也不代替真人可访问性、发布许可和高清人工验收**。
+
+部署现在会包含原版 24 页 PDF、robots、sitemap 和新工具；GitHub Actions 必须先通过源文件检查与 JS 语法，再部署，并从公网下载首页、新工具、两份 SEO 文件及 PDF 与同版 main 逐字节比较。原版 PDF 来源与 SHA 见 [pdf/edition.json](pdf/edition.json)，本次没有重生成或宣称 200% 人工逐页审核。
 
 ## 能做什么
 
