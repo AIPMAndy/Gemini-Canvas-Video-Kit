@@ -2,6 +2,8 @@ name: Publish Gemini Canvas Video Kit
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -10,35 +12,67 @@ permissions:
   id-token: write
 
 concurrency:
-  group: github-pages
-  cancel-in-progress: true
+  group: github-pages-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate source links, review UI, metadata and PDF manifest
+        run: python3 scripts/smoke_test.py
+      - name: Check browser JavaScript syntax (inline)
+        run: |
+          python3 scripts/check_inline_js.py
+
   deploy:
+    needs: verify
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-      - name: Verify links, demos, and website entry
-        run: python3 scripts/smoke_test.py
-      - name: Stage static pages
+      - uses: actions/checkout@v4
+      - name: Stage public files, original PDF, and SEO resources
         shell: bash
         run: |
-          mkdir -p _site
-          cp index.html .nojekyll _site/
+          set -euo pipefail
+          mkdir -p _site/pdf
+          cp index.html review.html robots.txt sitemap.xml .nojekyll _site/
           cp -R examples assets _site/
-          test -s _site/index.html
-          test -s _site/examples/launch-showcase.html
-          test -s _site/examples/knowledge-explainer.html
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload website
-        uses: actions/upload-pages-artifact@v4
+          cp pdf/Gemini-Canvas-Video-Kit-guide.pdf _site/pdf/
+          test -s _site/review.html
+          test -s _site/pdf/Gemini-Canvas-Video-Kit-guide.pdf
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  verify-live:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require actual public HTTP 200 and exact deployed bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://aipmandy.github.io/Gemini-Canvas-Video-Kit"
+          for path in index.html review.html robots.txt sitemap.xml pdf/Gemini-Canvas-Video-Kit-guide.pdf; do
+            pass=0
+            for attempt in $(seq 1 16); do
+              if curl -fLSs --max-time 35 --retry 2 --retry-delay 3 "$base/$path" -o /tmp/current-live && cmp -s "$path" /tmp/current-live; then
+                echo "PASS $path $(sha256sum "$path" | cut -d' ' -f1)"
+                pass=1
+                break
+              fi
+              echo "Pending $path attempt $attempt"
+              sleep 15
+            done
+            if [ "$pass" -ne 1 ]; then echo "FAIL public bytes $path"; exit 1; fi
+          done
