@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f9fb">
+<title>视频成片验收与返工清单｜Gemini Canvas Video Kit</title>
+<meta name="description" content="为 Gemini Canvas 代码动画视频建立可复核的分镜时间轴、逐项成片 QA、证据边界和修复提示词。全部在本机浏览器处理，支持 TXT 导出。">
+<link rel="canonical" href="https://aipmandy.github.io/Gemini-Canvas-Video-Kit/review.html">
+<meta property="og:type" content="website"><meta property="og:title" content="成片验收与返工工作台｜Gemini Canvas Video Kit"><meta property="og:description" content="按真实分镜、可核查证据和 12 项质量检查验收网页动画视频。"><meta property="og:url" content="https://aipmandy.github.io/Gemini-Canvas-Video-Kit/review.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Gemini Canvas 视频成片验收与返工工作台","url":"https://aipmandy.github.io/Gemini-Canvas-Video-Kit/review.html","description":"网页动画视频的本地分镜时间轴、证据自检、质量验收与返工提示词生成工具","applicationCategory":"MultimediaApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"zh-CN","dateModified":"2026-11-23","author":{"@type":"Person","name":"AI 酋长 Andy","url":"https://metaver.vip/"},"publisher":{"@type":"Organization","name":"星觉科技","url":"https://www.a6no1.cn/"}}</script>
+<style>
+:root{color-scheme:light;font-family:Inter,-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;--ink:#152032;--sub:#58667a;--line:#e1e6ed;--bg:#f7f8fa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7}a{color:#1d467a;text-underline-offset:3px}button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #456cb6;outline-offset:2px}.wrap{width:min(1080px,calc(100% - 36px));margin:0 auto}
+header{border-bottom:1px solid var(--line);background:#fff}header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px}header a{font-size:13px;font-weight:700}
+.hero{padding:55px 0 25px}.eyebrow{font-size:12px;color:#536273;font-weight:750;letter-spacing:.11em;text-transform:uppercase}h1{font-size:clamp(31px,4.2vw,51px);line-height:1.2;letter-spacing:-.05em;margin:10px 0 15px}h2{font-size:23px;letter-spacing:-.035em;margin:0 0 13px}h3{font-size:15px;margin:0 0 9px}.lead{font-size:16px;color:var(--sub);max-width:780px}.shell{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin:16px 0 36px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}.panel.wide{grid-column:1/-1}.muted{color:var(--sub);font-size:13px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:5px;margin:0 0 14px;min-width:0}.field label{font-size:13px;font-weight:750}.field input,.field select,.field textarea{width:100%;padding:10px 12px;min-height:46px;border-radius:9px;border:1px solid #bdc9d8;background:#fff;color:var(--ink)}.field textarea{min-height:100px;resize:vertical}.bar{display:flex;gap:9px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;min-height:46px;padding:11px 16px;border-radius:9px;border:1px solid #cbd5e2;background:white;font-size:13px;font-weight:750;color:#1d3555}.btn.primary{background:#162b49;color:#fff;border-color:#162b49}.btn.danger{color:#9c2c27;border-color:#f0cdc9}.timeline{margin:0;padding:0;list-style:none}.timeline li{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid #eef1f5}.timeline li:last-child{border-bottom:0}.time{white-space:nowrap;font-variant-numeric:tabular-nums;color:#365077;font-size:12px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:9px}.check{display:flex;align-items:flex-start;gap:12px;min-height:65px;border:1px solid var(--line);padding:13px;border-radius:11px;font-size:13px}.check input{width:21px;height:21px;flex:none;accent-color:#274c83}.check small{display:block;color:var(--sub);margin-top:3px;font-size:12px}.metric{font-weight:750;margin:8px 0;color:#283f62}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.7;background:#f2f5f9;border:1px solid var(--line);padding:15px;border-radius:10px;max-height:480px;overflow:auto}footer{border-top:1px solid var(--line);background:#fff;padding:25px 0 40px;font-size:12px;color:var(--sub)}footer a{margin-right:18px}#status{min-height:22px;font-size:12px;color:#305479}.note{border-left:3px solid #8aa5ca;padding:4px 12px;color:#536273;font-size:12px;background:#f7f9fc}@media(max-width:730px){.shell,.formgrid,.checks{grid-template-columns:1fr}.panel.wide{grid-column:auto}.panel{padding:18px}.hero{padding-top:32px}header .wrap{min-height:64px}.bar .btn{flex:1}}
+</style></head><body>
+<header><div class="wrap"><a href="./">← 返回视频 Prompt 工作室</a><span class="eyebrow">GEMINI CANVAS · QA</span></div></header>
+<main class="wrap"><div class="hero"><span class="eyebrow">制作闭环 / 验收而不是猜测</span><h1>把一支视频，验收到可以发布。</h1><p class="lead">为网页动画视频建立精确时间轴与 12 项可操作的验收记录；自动生成待修复事项及 Gemini Canvas 返工 Prompt。<strong>全部本机完成，不上传素材或账号数据。</strong></p></div>
+<div class="shell">
+<section class="panel" aria-labelledby="inputtitle"><h2 id="inputtitle">01 / 作品信息</h2>
+<div class="field"><label for="project">视频名称</label><input id="project" maxlength="100" placeholder="例如：SaaS 产品录屏示例" value="教学演示（未录制）"></div>
+<div class="formgrid"><div class="field"><label for="seconds">总时长（秒）</label><input id="seconds" type="number" min="10" max="300" step="1" value="30"></div><div class="field"><label for="ratio">画幅</label><select id="ratio"><option>16:9</option><option>9:16</option><option>1:1</option></select></div></div>
+<div class="field"><label for="proof">素材证据类型</label><select id="proof"><option value="concept">概念演示 / 模拟画面</option><option value="verified">有可核验的真实产品素材</option></select></div>
+<div class="field"><label for="source">来源链接（真实素材才要求填写）</label><input id="source" type="url" placeholder="https://...，不填写私密链接" inputmode="url"></div>
+<div class="field"><label for="notes">尚存问题与改动目标</label><textarea id="notes" maxlength="2000" placeholder="例如：第 3 镜头跳帧；字幕被手机安全区裁切"></textarea></div>
+<p class="note">录屏不等于官方承诺的 MP4 原生导出；真实 UI、客户、效果与转化数据都必须来自可核查素材。标记「已通过」仅表示你本人自检，不代表本站替你完成验收。</p></section>
+<section class="panel" aria-labelledby="timetitle"><h2 id="timetitle">02 / 时间轴参考</h2><p class="muted">按 5 镜头加权分配整数秒数，总和严格等于视频时长；这是编辑参考，不是实际浏览器录制证据。</p><ol id="timeline" class="timeline" aria-live="polite"></ol><p class="metric" id="durationCheck">时长：30 秒</p><p class="muted">建议先确认因果连续：起点 → 输入 → 操作 → 结果 → 行动。实际镜头长度可调整，关键在时序可复核。</p></section>
+<section class="panel wide" aria-labelledby="checktitle"><h2 id="checktitle">03 / 成片 QA（逐项人工勾选）</h2><p id="count" class="metric" aria-live="polite">已确认 0 / 12 项</p><div id="checks" class="checks"></div></section>
+<section class="panel wide" aria-labelledby="outtitle"><h2 id="outtitle">04 / 修复任务与导出</h2><p class="muted">未勾选的项目自动进入返工 Prompt。生成文本只包含你填入的内容和检查清单，不会访问 Gemini 或更改原视频。</p><div id="warning" class="note" role="status"></div><pre id="output" aria-label="返工任务文本"></pre><div class="bar"><button type="button" class="btn primary" id="copy">复制返工 Prompt</button><button type="button" class="btn" id="download">导出 TXT 验收单</button><button type="button" class="btn danger" id="reset">清空本机记录</button></div><p id="status" role="status" aria-live="polite"></p></section>
+</div></main>
+<footer><div class="wrap">作者：AI 酋长 Andy · 2026-11-23 页面版本；功能依据：<a href="https://support.google.com/gemini/answer/16047321" target="_blank" rel="noopener noreferrer">Gemini Canvas 官方帮助</a>（具体功能与地区限制请以官方现行页面为准）。本工具为独立开源项目，非 Google 官方产品。<p>微信 AIPMAndy · <a href="https://metaver.vip/">个人官网</a><a href="https://www.a6no1.cn/">星觉科技</a><a href="https://metaver.vip/services">咨询服务</a><a href="https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit">源代码</a> · <a href="pdf/Gemini-Canvas-Video-Kit-guide.pdf">24 页原版 PDF</a></p></div></footer>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const items=[
+['首屏','开场 3 秒可理解主题与唯一受众'],
+['时间','实际播放时长与预设一致，没有空白终帧'],
+['连续性','操作起点、点击、输入、反馈与结果因果连贯'],
+['复位','暂停、重播后光标和输入状态回到正确起点'],
+['画幅','目标 16:9 / 9:16 / 1:1 无裁剪与横向溢出'],
+['字幕','中文字幕无错别字，阅读速度合理并避开安全区'],
+['对比度','文字与背景对比清楚，手机尺寸可辨认'],
+['真实边界','模拟界面明确标记“概念演示”，真实结论能核对'],
+['数据','所有数字、客户案例、收益与效果有来源或明确为模拟'],
+['音乐版权','使用的图片、音频与字体具有相应授权'],
+['权限与隐私','视频无账户、令牌、客户姓名等未经允许的敏感信息'],
+['结尾','CTA 清楚，真实播放和录屏回看无白屏/跳帧']
+];
+const names=['开场钩子','问题和用户情境','连续操作与变化','结果核对与证据','结尾与行动'];
+const weights=[12,18,32,23,15], storage='gemini-canvas-qa-20261123';
+let checked={};try{const saved=JSON.parse(localStorage.getItem(storage)||'{}');if(saved&&typeof saved==='object'){for(const k of ['project','seconds','ratio','proof','source','notes'])if(typeof saved[k]==='string')$(k).value=saved[k];if(saved.checked&&typeof saved.checked==='object')checked=saved.checked;}}catch(_){}
+const persist=()=>{try{const s={checked};for(const k of ['project','seconds','ratio','proof','source','notes'])s[k]=$(k).value;localStorage.setItem(storage,JSON.stringify(s));}catch(_){$('status').textContent='浏览器禁止本机存储：可以继续使用和导出，但刷新后记录可能消失。'}};
+const safe=v=>String(v||'').trim();
+function render(){
+ const secs=Number($('seconds').value), valid=Number.isInteger(secs)&&secs>=10&&secs<=300;
+ const lengths=[];if(valid){let remaining=secs;for(let i=0;i<weights.length;i++){const n=i===weights.length-1?remaining:Math.floor(secs*weights[i]/100);lengths.push(n);remaining-=n;}}
+ $('timeline').replaceChildren();
+ if(valid){let start=0;names.forEach((name,i)=>{const li=document.createElement('li'),b=document.createElement('strong'),time=document.createElement('span');b.textContent=String(i+1).padStart(2,'0')+' / '+name;time.className='time';time.textContent=start+'–'+(start+lengths[i])+' 秒';start+=lengths[i];li.append(b,time);$('timeline').append(li)});$('durationCheck').textContent='合计 '+lengths.reduce((a,b)=>a+b,0)+' / '+secs+' 秒';}else{$('durationCheck').textContent='时长必须为 10–300 的整数秒。'}
+ let done=0;items.forEach((_,i)=>{if(checked[i]===true)done++});$('count').textContent='已人工确认 '+done+' / '+items.length+' 项（未完成 '+(items.length-done)+' 项）';
+ const real=$('proof').value==='verified',url=safe($('source').value),goodUrl=/^https:\/\/[^\s/]+(?:\/[^\s]*)?$/i.test(url);
+ $('warning').textContent=real&&!goodUrl?'已选择“真实素材”但没有有效 HTTPS 来源：不可声明已核实；请补链接或改为概念演示。':'只生成检查与返工文本；本站不能代替真实设备、授权检查或人工观看。';
+ const missing=items.map((r,i)=>checked[i]?null:'- '+r[0]+'：'+r[1]).filter(Boolean);
+ const title=safe($('project').value)||'未命名视频';
+ const lines=['# Gemini Canvas 视频返工/验收单','作品：'+title,'目标时长：'+(valid?secs+' 秒':'无效，请修正'),'画幅：'+$('ratio').value,'证据状态：'+(real&&goodUrl?'用户声明有来源，尚待人工核实':real?'缺少可用来源，不可写实测':'概念演示 / 虚构示意'),'来源：'+(url||'未填写'),'作者/检查者：用户本人（本站不代签）','人工检查：'+done+'/'+items.length,'','## 待处理项',...(missing.length?missing:['无未勾选项，但仍需真实播放回看和发布前复核']),'','## 用户记录',safe($('notes').value)||'暂无','', '## 返工要求','请在 Gemini 网页版 Canvas 中修复这些具体问题，保持其他功能与真实数据不变。每个改动说明修复位置、验证步骤与失败回退；禁止凭空补客户、收入、排名、授权和截图。','', '本清单生成于 2026-11-23 版本工具；当前勾选是本机记录，不代表自动执行或官方测试。'];
+ $('output').textContent=lines.join('\n');$('copy').disabled=!valid;$('download').disabled=!valid;
+ persist();
+}
+items.forEach((r,i)=>{const label=document.createElement('label'),c=document.createElement('input'),s=document.createElement('span'),small=document.createElement('small');label.className='check';c.type='checkbox';c.checked=checked[i]===true;c.addEventListener('change',()=>{checked[i]=c.checked;render()});s.textContent=r[0];small.textContent=r[1];s.appendChild(small);label.append(c,s);$('checks').append(label)});
+['project','seconds','ratio','proof','source','notes'].forEach(k=>$(k).addEventListener('input',render));
+$('copy').addEventListener('click',async()=>{const text=$('output').textContent;try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);$('status').textContent='已复制返工文本';return}}catch(_){}$('status').textContent='浏览器未允许复制，请手动选择上方文本。'});
+$('download').addEventListener('click',()=>{const blob=new Blob(['\uFEFF'+$('output').textContent],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='gemini-canvas-video-qa.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='已触发本地 TXT 下载（浏览器可能要求确认）'});
+$('reset').addEventListener('click',()=>{if(!confirm('确定清除本机保存的检查记录？此操作不可撤销。'))return;try{localStorage.removeItem(storage)}catch(_){}checked={};$('project').value='';$('seconds').value='30';$('ratio').value='16:9';$('proof').value='concept';$('source').value='';$('notes').value='';$('checks').querySelectorAll('input').forEach(c=>c.checked=false);render();$('status').textContent='已清空检查记录'});
+render();
+})();
+</script></body></html>
