@@ -1,0 +1,53 @@
+# Gemini Canvas Video Kit
+
+> 只用 Gemini 网页版 Canvas，把一句话做成可录屏的网页视频。含提示词工作室、演示与 PDF。非 Google 官方。
+
+- 作者：AI酋长Andy（AIPMAndy），官网 https://metaver.vip/
+- 开源仓库：https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit
+- 在线地址：https://aipmandy.github.io/Gemini-Canvas-Video-Kit/
+- 许可：MIT
+- 语言：中文（zh-CN）
+- 最近更新：2026-11-23
+
+## 这是什么
+
+不用 CLI · 不用 API Key · 不用安装插件 · 中文优先 · 开箱即用
+打开提示词工作室./index.html · 成片验收与返工工作台./review.html · 30 秒完整演示./examples/launch-showcase.html · 5 分钟入门./docs/quickstart.md · English./README.en.md
+
+## 主要页面
+
+- [15 秒知识科普示例 · Gemini Canvas Video Kit](https://aipmandy.github.io/Gemini-Canvas-Video-Kit/examples/knowledge-explainer.html)
+- [30 秒可录制产品 Demo · Gemini Canvas Video Kit](https://aipmandy.github.io/Gemini-Canvas-Video-Kit/examples/launch-showcase.html)
+- [Gemini Canvas Video Kit · 一句话做完整视频](https://aipmandy.github.io/Gemini-Canvas-Video-Kit/)
+- [视频成片验收与返工清单｜Gemini Canvas Video Kit](https://aipmandy.github.io/Gemini-Canvas-Video-Kit/review.html)
+
+## 内容目录
+
+- 精美 PDF 电子书
+- 在线网站 / Live Website
+- 为什么做
+- 只需四步
+- 成片验收与返工工作台（2026-11-23 新增）
+- 能做什么
+- 这个项目实际包含
+- 视频质量基线
+- 关于声音与导出，必须先说清楚
+- 常见问题（FAQ）
+- 原始资料与参考
+- 作者与合作
+
+## 关键事实
+
+- 名称：Gemini Canvas Video Kit
+- 类型：中文开源项目
+- 许可：MIT
+- 语言：中文
+- 最近更新：2026-11-23
+- 仓库：https://github.com/AIPMAndy/Gemini-Canvas-Video-Kit
+
+## 相关链接
+
+- [作者官网](https://metaver.vip/)
+- [GitHub 主页](https://github.com/AIPMAndy/AIPMAndy)
+- [开源总目录](https://aipmandy.github.io/)
+- [机器可读摘要](https://aipmandy.github.io/Gemini-Canvas-Video-Kit/llms.txt)
