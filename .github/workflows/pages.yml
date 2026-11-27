@@ -46,6 +46,8 @@ jobs:
           test -s _site/review.html
           test -s _site/pdf/Gemini-Canvas-Video-Kit-guide.pdf
       - uses: actions/configure-pages@v5
+      - name: Ensure llms.txt in Pages artifact
+        run: mkdir -p _site && cp llms.txt _site/llms.txt
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
